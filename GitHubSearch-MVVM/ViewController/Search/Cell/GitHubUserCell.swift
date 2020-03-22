@@ -9,7 +9,7 @@
 import UIKit
 
 final class GitHubUserCell: UITableViewCell {
-    struct Input{
+    struct Input: Equatable {
         let imageURL: URL
         let name: String
     }

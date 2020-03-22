@@ -13,20 +13,21 @@ import RxCocoa
 final class SearchViewModel {
     let items: Driver<[GitHubUserCell.Input]>
 
-    init(searchBarText: Observable<String?>, searchButtonClicked: Observable<Void>) {
+    init(searchText: ControlProperty<String?>, searchButtonClicked: ControlEvent<Void>) {
         let model = SearchModel()
         
         items = searchButtonClicked
-            .withLatestFrom(searchBarText)
-            .compactMap{ $0 }
-            .flatMap{ text -> Observable<[User]> in
-                model.fetchUser(query: text).asObservable()
+            .withLatestFrom(searchText)
+            .compactMap { $0 }
+            .flatMap { text -> Single<[User]> in
+                model.fetchUser(query: text)
             }
-            .map{ users -> [GitHubUserCell.Input] in
+            .map { users -> [GitHubUserCell.Input] in
                 users.map { user -> GitHubUserCell.Input in
                     .init(imageURL: user.avatarURL, name: user.login)
                 }
             }
+            .distinctUntilChanged()
             .asDriver(onErrorDriveWith: .empty())
         
     }

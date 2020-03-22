@@ -150,6 +150,9 @@
 				97F779FD2427863F004E8CC2 /* Common */,
 				97F779FC2427862F004E8CC2 /* ViewController */,
 				978965CD2424E7FB0067D4E7 /* GitHub */,
+				978965AB2424E7CE0067D4E7 /* AppDelegate.swift */,
+				978965AD2424E7CE0067D4E7 /* SceneDelegate.swift */,
+				978965B92424E7D20067D4E7 /* Info.plist */,
 			);
 			path = "GitHubSearch-MVVM";
 			sourceTree = "<group>";
@@ -256,11 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				97F779F724272744004E8CC2 /* Extension */,
-				978965AB2424E7CE0067D4E7 /* AppDelegate.swift */,
-				978965AD2424E7CE0067D4E7 /* SceneDelegate.swift */,
 				978965B42424E7D20067D4E7 /* Assets.xcassets */,
 				978965B62424E7D20067D4E7 /* LaunchScreen.storyboard */,
-				978965B92424E7D20067D4E7 /* Info.plist */,
 			);
 			path = Common;
 			sourceTree = "<group>";

@@ -22,10 +22,12 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let viewModel = SearchViewModel(
-            searchBarText: searchBar.rx.text.asObservable(),
-            searchButtonClicked: searchBar.rx.searchButtonClicked.asObservable()
+            searchText: searchBar.rx.text,
+            searchButtonClicked: searchBar.rx.searchButtonClicked
         )
+        
         viewModel.items
             .drive(tableView.rx.items(type: GitHubUserCell.self)) { row, element, cell in
                 cell.configure(input: element)
