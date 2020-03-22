@@ -23,7 +23,7 @@ public final class Session {
     private let additionalHeaderFields: () -> [String: String]?
     private let session: URLSession
 
-    public init(accessToken: @escaping () -> AccessToken? = { nil },
+    public init(accessToken: @escaping () -> AccessToken? = { AccessToken() },
                 additionalHeaderFields: @escaping () -> [String: String]? = { nil },
                 session: URLSession = .shared) {
         self.accessToken = accessToken

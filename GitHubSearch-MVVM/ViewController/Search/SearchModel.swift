@@ -20,7 +20,8 @@ final class SearchModel {
                 case .success(let responce, _):
                     observer(.success(responce.items))
                 case .failure(let error):
-                    observer(.error(error))
+                    print(error)
+                    observer(.success([]))
                 }
             })
             return Disposables.create()

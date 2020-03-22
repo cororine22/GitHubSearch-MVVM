@@ -19,7 +19,9 @@ public struct AccessToken: Codable {
         case scope
     }
 
-    public init(accessToken: String, tokenType: String, scope: String) {
+    public init(accessToken: String = "",
+                tokenType: String = "",
+                scope: String = "") {
         self.accessToken = accessToken
         self.tokenType = tokenType
         self.scope = scope
